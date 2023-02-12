@@ -4,20 +4,32 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:server": "nodemon express-server/app.js",
+    "auth0:export": "a0deploy export -c=auth0/config.json --format=yaml --output_folder=auth0",
+    "auth0:import": "a0deploy import -c=auth0/config.json --input_file auth0/tenant.yaml",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.0.0",
     "@next/font": "13.1.6",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.10",
+    "cors": "^2.8.5",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "jwks-rsa": "^3.0.1",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "auth0-deploy-cli": "^7.16.1",
+    "nodemon": "^2.0.20"
   }
 }
